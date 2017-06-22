@@ -1,0 +1,32 @@
+
+X creating simple app with support graphQL
+
+x creating simple web service 
+
+x add support graphql to simple web service (create new endpoint that holds graphql query) (/graphql/* path)
+
+x make possible returning simple watchlist from service
+
+x make possible returning real watchlist from service (mock)
+
+x research posibilities of React and structure of react components
+
+X research WebPack and its power
+
+x repair app for building
+
+x add graphql support (npm lib)
+
+x add graphql entry point (endpoint)
+
+X add graphql request
+
+X create client for grab graphQL data (test) Using react-apollo
+
+- uncomment methods
+
+- add lists into WatchLists
+
+- add lists into montage box
+
+- make paramener Client on the main wathclist query

@@ -1,0 +1,13 @@
+//        <div className="row">
+//        <div className="col-xs-3 "><strong>Symbol</strong></div>
+//        <div className="col-xs-3 "><strong>Bid</strong></div>
+//        <div className="col-xs-3 "><strong>Ask</strong></div>
+//        <div className="col-xs-1 style-test2" ><strong>L2</strong></div>
+//        <div className="col-xs-1 style-test1"><strong></strong></div>      
+ //       </div>
+
+
+  <!--<MontageRow watchList={wl}/>-->  
+
+from devDependencies
+    
