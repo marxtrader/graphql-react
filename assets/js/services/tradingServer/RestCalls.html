@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Rest API Calls</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+    </head>
+    <body>
+
+        <h1>ETS Data Management Links</h1>
+
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/{symbol}/all">routes/{symbol}/all</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/{symbol}/permitted">routes/{symbol}/permitted</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/add">routes/add</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/all/permitted">routes/all/permitted</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/carrierexchanges/add">routes/carrierexchanges/add</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/carrierexchanges/delete">routes/carrierexchanges/delete</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/carrierexchanges/list">routes/carrierexchanges/list</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/carriers/add">routes/carriers/add</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/carriers/delete">routes/carriers/delete</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/carriers/list">routes/carriers/list</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/delete">routes/delete</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/levels/add">routes/levels/add</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/levels/delete">routes/levels/delete</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/levels/list">routes/levels/list</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/search">routes/search</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/suppliers/add">routes/suppliers/add</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/suppliers/delete">routes/suppliers/delete</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/routes/suppliers/list">routes/suppliers/list</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/all">symbols/all</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/carrier/{carrierID}/{instrumentID}/{carrierSymbol}">symbols/carrier/{carrierID}/{instrumentID}/{carrierSymbol}</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/carrier/saveMultiple">symbols/carrier/saveMultiple</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/delete">symbols/delete</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/destination/{destid}">symbols/destination/{destid}</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/destination/{destid}/{instrumentID}/{destSymbol}">symbols/destination/{destid}/{instrumentID}/{destSymbol}</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/destination/saveMultiple">symbols/destination/saveMultiple</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/exchange/{exchangeid}">symbols/exchange/{exchangeid}</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/exchange/{exchangeid}/{carrier}">symbols/exchange/{exchangeid}/{carrier}</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/search">symbols/search</a>
+        <a href = "http://current.marx.tech:8080/etsdatamanagement/rest/symbols/update">symbols/update</a>
+
+
+        <h1>OMS Rest Services</h1>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/accounts“>omsrestservices/rest/accounts</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/accounts/(id)“>omsrestservices/rest/accounts/(id)</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/accounts/(id)/adjustments“>omsrestservices/rest/accounts/(id)/adjustments</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/accounts/(id)/delete“>omsrestservices/rest/accounts/(id)/delete</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/accounts/(id)/deleteadjustments“>omsrestservices/rest/accounts/(id)/deleteadjustments</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/accounts/(id)/markets“>omsrestservices/rest/accounts/(id)/markets</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/accounts/(id)/positions“>omsrestservices/rest/accounts/(id)/positions</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/accounts/(id)/retireTickets“>omsrestservices/rest/accounts/(id)/retireTickets</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/accounts/adjustments/new“>omsrestservices/rest/accounts/adjustments/new</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/accounts/new“>omsrestservices/rest/accounts/new</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/companies/(id)/accounts“>omsrestservices/rest/companies/(id)/accounts</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/delayedbbookgenerator/(modulename)/defaultholdtime“>omsrestservices/rest/delayedbbookgenerator/(modulename)/defaultholdtime</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/delayedbbookgenerator/(modulename)/destholdtimes“>omsrestservices/rest/delayedbbookgenerator/(modulename)/destholdtimes</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/delayedbbookgenerator/(modulename)/groupDestMap“>omsrestservices/rest/delayedbbookgenerator/(modulename)/groupDestMap</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/delayedbbookgenerator/(modulename)/groupholdtimes“>omsrestservices/rest/delayedbbookgenerator/(modulename)/groupholdtimes</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/delayedbbookgenerator/defaultholdtime“>omsrestservices/rest/delayedbbookgenerator/defaultholdtime</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/delayedbbookgenerator/destholdtimes“>omsrestservices/rest/delayedbbookgenerator/destholdtimes</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/delayedbbookgenerator/groupDestMap“>omsrestservices/rest/delayedbbookgenerator/groupDestMap</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/delayedbbookgenerator/groupholdtimes“>omsrestservices/rest/delayedbbookgenerator/groupholdtimes</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/destinations/(id)“>omsrestservices/rest/destinations/(id)</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/destinations/all“>omsrestservices/rest/destinations/all</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/destinations/info“>omsrestservices/rest/destinations/info</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/destinations/info/(id)“>omsrestservices/rest/destinations/info/(id)</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/destinations/info/company/(id)“>omsrestservices/rest/destinations/info/company/(id)</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/destinations/info/save“>omsrestservices/rest/destinations/info/save</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/destinations/info/user“>omsrestservices/rest/destinations/info/user</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/destinations/markets/all“>omsrestservices/rest/destinations/markets/all</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/destinations/save“>omsrestservices/rest/destinations/save</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/earproperties“>omsrestservices/rest/earproperties</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/findAccounts“>omsrestservices/rest/findAccounts</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/findOrders“>omsrestservices/rest/findOrders</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/gateways/(userid)/usergatewaycredentials“>omsrestservices/rest/gateways/(userid)/usergatewaycredentials</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/gateways/usergatewaycredentials“>omsrestservices/rest/gateways/usergatewaycredentials</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels“>omsrestservices/rest/greylabels</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/accounts/(accountID)/balance“>omsrestservices/rest/greylabels/accounts/(accountID)/balance</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/accounts/(accountID)/buyingPower“>omsrestservices/rest/greylabels/accounts/(accountID)/buyingPower</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/accounts/(accountID)/equity“>omsrestservices/rest/greylabels/accounts/(accountID)/equity</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/accounts/(accountID)/freeMargin“>omsrestservices/rest/greylabels/accounts/(accountID)/freeMargin</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/accounts/(accountID)/requiredMargin“>omsrestservices/rest/greylabels/accounts/(accountID)/requiredMargin</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/all“>omsrestservices/rest/greylabels/all</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/bookset“>omsrestservices/rest/greylabels/bookset</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/dashboard“>omsrestservices/rest/greylabels/dashboard</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/delete“>omsrestservices/rest/greylabels/delete</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/save“>omsrestservices/rest/greylabels/save</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/greylabels/users/accounts/update“>omsrestservices/rest/greylabels/users/accounts/update</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/marketdata/send/(modulename)“>omsrestservices/rest/marketdata/send/(modulename)</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/mergedmarketrouter/(modulename)“>omsrestservices/rest/mergedmarketrouter/(modulename)</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/mergedmarketrouter/(modulename)“>omsrestservices/rest/mergedmarketrouter/(modulename)</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/meta/accounts/types“>omsrestservices/rest/meta/accounts/types</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/meta/enums“>omsrestservices/rest/meta/enums</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/meta/executions/instructions“>omsrestservices/rest/meta/executions/instructions</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/meta/executions/types“>omsrestservices/rest/meta/executions/types</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/meta/instruments/types“>omsrestservices/rest/meta/instruments/types</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/meta/orders/sides“>omsrestservices/rest/meta/orders/sides</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/meta/orders/states“>omsrestservices/rest/meta/orders/states</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/meta/orders/tifs“>omsrestservices/rest/meta/orders/tifs</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/meta/orders/types“>omsrestservices/rest/meta/orders/types</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/meta/tickets/states“>omsrestservices/rest/meta/tickets/states</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/(id)“>omsrestservices/rest/orders/(id)</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/(id)/calculations“>omsrestservices/rest/orders/(id)/calculations</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/(id)/cancel“>omsrestservices/rest/orders/(id)/cancel</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/(id)/executions“>omsrestservices/rest/orders/(id)/executions</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/(id)/replace“>omsrestservices/rest/orders/(id)/replace</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/(id)/undock“>omsrestservices/rest/orders/(id)/undock</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/active“>omsrestservices/rest/orders/active</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/cancel“>omsrestservices/rest/orders/cancel</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/dock“>omsrestservices/rest/orders/dock</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/events“>omsrestservices/rest/orders/events</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/events2“>omsrestservices/rest/orders/events2</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/eventsource/(type)“>omsrestservices/rest/orders/eventsource/(type)</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/eventsource/(type)/history“>omsrestservices/rest/orders/eventsource/(type)/history</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/place“>omsrestservices/rest/orders/place</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/placeTrigger“>omsrestservices/rest/orders/placeTrigger</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/orders/replace“>omsrestservices/rest/orders/replace</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/rest“>omsrestservices/rest/rest</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/roles/primary“>omsrestservices/rest/roles/primary</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/sequences/all“>omsrestservices/rest/sequences/all</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/sequences/allocations/(sourceID)/clear“>omsrestservices/rest/sequences/allocations/(sourceID)/clear</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/sequences/allocations/(sourceID)/list“>omsrestservices/rest/sequences/allocations/(sourceID)/list</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/sequences/allocations/(sourceID)/new/(allocSize)“>omsrestservices/rest/sequences/allocations/(sourceID)/new/(allocSize)</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/sequences/delete“>omsrestservices/rest/sequences/delete</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/sequences/save“>omsrestservices/rest/sequences/save</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/systemevents/all“>omsrestservices/rest/systemevents/all</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/userDestinations“>omsrestservices/rest/userDestinations</a>
+        <a href = “http://current.marx.tech:8080/omsrestservices/rest/userids“>omsrestservices/rest/userids</a>
+
+    </body>
+</html>
