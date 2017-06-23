@@ -20,7 +20,7 @@ class TraderDashboard extends React.Component {
     this.state = {
       watchlists: [],
       currentWatchListID: 0,
-      isLoggedIn: false,
+      isLoggedIn: props.location.state.isAuth || false,
       htmlLogin: null
     };
   }
@@ -50,9 +50,7 @@ class TraderDashboard extends React.Component {
   }  
 
   onSignAction(newState){
-      
-//      this.setState( { isLoggedIn: newState } );
-//      console.log('new log state is ' + newState);
+        window.console.log("need implement this call...");
   }
   
   onGetData(data){
@@ -64,39 +62,35 @@ class TraderDashboard extends React.Component {
   }
 
   render() {    
-//    if (!this.state.isLoggedIn){
-//        return (<Signin onSignin={this.onSignAction} />);
-//    }else
-//<WatchListData onGetData={this.onGetData} />
-            return (
-              <div className="container-fluid">
-                <Header onSignAct={this.onSignAction} isLogged={this.state.isLoggedIn}/>
-                <div className="well">
-                  <strong>MARX TRADING SYSTEM CLIENT</strong>
+        return (
+          <div className="container-fluid">
+            <Header onSignAct={this.onSignAction} isLogged={this.state.isLoggedIn}/>
+            <div className="well">
+              <strong>MARX TRADING SYSTEM CLIENT</strong>
+            </div>
+            <div className="row">
+              <div className="col-md-4">
+                <Watchlist watchLists={this.state.watchlists} onChange={this.onChangeCurWatchList}/>
+                <Montage watchListID={this.state.currentWatchListID}/>                      
+              </div>
+              <div className="col-md-8">
+                <div className="row">
+                  <div className="col-md-12">
+                  <Blotter />
+                </div>
                 </div>
                 <div className="row">
-                  <div className="col-md-4">
-                    <Watchlist watchLists={this.state.watchlists} onChange={this.onChangeCurWatchList}/>
-                    <Montage watchListID={this.state.currentWatchListID}/>                      
+                  <div className="col-md-7">
+                    <CurrentPositions isLogged={this.state.isLoggedIn}/>
                   </div>
-                  <div className="col-md-8">
-                    <div className="row">
-                      <div className="col-md-12">
-                      <Blotter />
-                    </div>
-                    </div>
-                    <div className="row">
-                      <div className="col-md-7">
-                        <CurrentPositions isLogged={this.state.isLoggedIn}/>
-                      </div>
-                      <div className="col-md-5">
-                        <TimeAndSales />
-                      </div>
-                    </div>
+                  <div className="col-md-5">
+                    <TimeAndSales />
                   </div>
                 </div>
               </div>
-            );
+            </div>
+          </div>
+        );
     }
 }
 

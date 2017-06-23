@@ -15,16 +15,20 @@ class Signin extends React.Component{
     }
     
     handleSubmit(){
-        var succ = false;
+        var succ;
         if ((this.state.username === '' ) || (this.state.password === ''))
             succ = false;
         else{
-            succ = ApiSvc.login(this.state.username, this.state.password);
-            if (succ) 
-                this.setState({ redirectToReferrer: true });
+            succ = false;
+            succ = true;  // test
+            
+//            if ( !ApiSvc.isAlreadyLogged() ){
+//                succ = ApiSvc.login(this.state.username, this.state.password);
+                if (succ)
+                    this.setState({ redirectToReferrer: true });
+          //  }
         }
-        
-//        succ = ApiSvc.login(this.state.username, this.state.password);
+    //    var succ = false;
 //                .then( ( res ) => {
 //                    if ((res.ok) ){
 //                        succ = true;

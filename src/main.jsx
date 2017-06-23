@@ -24,9 +24,9 @@ const config = require('../assets/js/services/tradingServer/config.js');
 //    }            
 //);
 
-const Entry= () => {
+const Entry= ({...props}) => {
       return ( <ApolloProvider client={client}>
-                    <TraderDashboard />
+                    <TraderDashboard {...props}/>
                 </ApolloProvider> );
     };
     
