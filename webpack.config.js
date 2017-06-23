@@ -7,7 +7,7 @@ const buildDir = './assets/build/';
 const entryDir = './src/main.jsx';
 
 var pluginArr = [];
-if ((process.env.NODE_ENV === 'testing') || (process.env.NODE_ENV === 'minimize')){
+if ((process.env.NODE_ENV === 'testing') || (process.env.NODE_ENV === 'testingmin')) {
     // for deploy require remote folder structure:
     //  -project_name.war 
     //    |
@@ -32,19 +32,19 @@ if ((process.env.NODE_ENV === 'testing') || (process.env.NODE_ENV === 'minimize'
         to: testingRemotePath  
     });
     pluginArr.push(testingDeploy);
+}
 
-    if (process.env.NODE_ENV === 'minimize') {
-        // for production minimize code
-        env = new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('production')
-            }
-        });
-        pluginArr.push(env);
+if ((process.env.NODE_ENV === 'testingmin') || (process.env.NODE_ENV === 'minimize')){
+    // for production minimize code
+    env = new webpack.DefinePlugin({
+        'process.env': {
+            NODE_ENV: JSON.stringify('production')
+        }
+    });
+    pluginArr.push(env);
 
-        uglify = new webpack.optimize.UglifyJsPlugin();
-        pluginArr.push(uglify);
-    }
+    uglify = new webpack.optimize.UglifyJsPlugin();
+    pluginArr.push(uglify);
 }
 
 module.exports = {
