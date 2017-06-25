@@ -105,21 +105,17 @@
 	    );
 	};
 
-	var loginPath = '/reactfront/login';
-	var dashboardPath = '/reactfront';
-	var privatePath = '/reactfront/private';
-
 	var fakeAuth = {
 	    isAuthenticated: false,
 	    signin: function signin(history) {
 	        isAuthenticated = true;
 	        //store.dispatch(setAuthState(true));
-	        setTimeout(history.push(dashboardPath), 100);
+	        setTimeout(history.push(config.dashboardPath), 100);
 	    },
 	    signout: function signout(history1) {
 	        isAuthenticated = false;
 	        //    store.dispatch(setAuthState(false));
-	        setTimeout(history1.push(loginPath), 100);
+	        setTimeout(history1.push(config.loginPath), 100);
 	    }
 	};
 
@@ -140,7 +136,7 @@
 	            fakeAuth.isAuthenticated = props.location.state.isAuth; // may returned from Signin.jsx 
 	        }
 	        return fakeAuth.isAuthenticated ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouterDom.Redirect, { to: {
-	                pathname: loginPath,
+	                pathname: config.loginPath,
 	                state: { from: props.location,
 	                    isAuth: fakeAuth.isAuthenticated
 	                }
@@ -161,17 +157,16 @@
 	//};    
 
 	_reactDom2.default.render(_react2.default.createElement(
-	    _reactApollo.ApolloProvider,
-	    { client: _GraphqlEndpoint2.default },
-	    _react2.default.createElement(_TraderDashboard2.default, null)
+	    _reactRouterDom.BrowserRouter,
+	    null,
+	    _react2.default.createElement(
+	        'div',
+	        null,
+	        _react2.default.createElement(_reactRouterDom.Route, { path: config.dashboardPath, component: _Signin2.default })
+	    )
 	), document.getElementById('app'));
 
-	/*<Router >
-	            <div>
-	                <Route path={loginPath} component={Signin} />   
-	                <PrivateRoute path={dashboardPath} component={Entry} />
-	            </div>
-	        </Router> */
+	// <PrivateRoute path={dashboardPath} component={Entry} />
 
 	// 
 	//       <!--<AuthButton />-->
@@ -24920,9 +24915,9 @@
 
 /***/ },
 /* 196 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
 	var serverUrl = 'http://testing.marx.tech:8080/';
 	var dataMgmtUrl = serverUrl + 'etsdatamanagement/';
@@ -24932,22 +24927,34 @@
 	var marketDataRestUrl = serverUrl + 'etsmarketdata/rest/';
 	var orderMgmtRestUrl = serverUrl + 'omsrestservices/rest/';
 
-	//if ((process.env.NODE_ENV === 'testing') || (process.env.NODE_ENV === 'minimize')) {
-	//    
-	//}
-	//const DEBUG_REMOTE = ((process.env.NODE_ENV === 'testing') ? (true) : (false));
-	//const MINIMIZE_CODE = 
+	var loginPath;
+	var dashboardPath;
+	var privatePath;
+
+	if (process.env.NODE_ENV !== 'github') {
+	    loginPath = '/reactfront/login';
+	    dashboardPath = '/reactfront';
+	    privatePath = '/reactfront/private';
+	} else {
+	    loginPath = '/login';
+	    dashboardPath = '/';
+	    privatePath = '/private';
+	}
 
 	module.exports = {
-	  serverUrl: serverUrl,
-	  dataMgmtUrl: dataMgmtUrl,
-	  loginUrl: loginUrl,
-	  dataMgmtRestUrl: dataMgmtRestUrl,
-	  marketDataRestUrl: marketDataRestUrl,
-	  orderMgmtRestUrl: orderMgmtRestUrl,
-	  username: 'test',
-	  password: 'test'
+	    serverUrl: serverUrl,
+	    dataMgmtUrl: dataMgmtUrl,
+	    loginUrl: loginUrl,
+	    dataMgmtRestUrl: dataMgmtRestUrl,
+	    marketDataRestUrl: marketDataRestUrl,
+	    orderMgmtRestUrl: orderMgmtRestUrl,
+	    username: 'test',
+	    password: 'test',
+	    loginPath: loginPath,
+	    dashboardPath: dashboardPath,
+	    privatePath: privatePath
 	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 197 */

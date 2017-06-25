@@ -30,21 +30,17 @@ const Entry= ({...props}) => {
                 </ApolloProvider> );
     };
     
-const loginPath = '/reactfront/login';
-const dashboardPath = '/reactfront';
-const privatePath = '/reactfront/private';   
-    
 const fakeAuth = {
   isAuthenticated: false,
   signin(history) {
     isAuthenticated = true;  
     //store.dispatch(setAuthState(true));
-    setTimeout(history.push(dashboardPath), 100); 
+    setTimeout(history.push(config.dashboardPath), 100); 
   },
   signout(history1) {
      isAuthenticated = false;   
 //    store.dispatch(setAuthState(false));
-    setTimeout(history1.push(loginPath), 100);
+    setTimeout(history1.push(config.loginPath), 100);
   }
 };    
 
@@ -67,7 +63,7 @@ const PrivateRoute = ({component:Component, ...rest}) => {
                        (<Component {...props}/>)
                     ) : (
                        <Redirect to={ {
-                            pathname: loginPath,
+                            pathname: config.loginPath,
                             state: { from: props.location,
                                      isAuth: fakeAuth.isAuthenticated
                                     }
@@ -87,21 +83,17 @@ const PrivateRoute = ({component:Component, ...rest}) => {
 //};    
 
 ReactDom.render( (
-        <ApolloProvider client={client}>
-                    <TraderDashboard />
-         </ApolloProvider> 
+        <Router >
+            <div>
+                <Route path={config.dashboardPath} component={Signin} />   
+               
+            </div>
+        </Router>
         ), document.getElementById('app')
  );
 
 
-/*<Router >
-            <div>
-                <Route path={loginPath} component={Signin} />   
-                <PrivateRoute path={dashboardPath} component={Entry} />
-            </div>
-        </Router> */
-
-
+ // <PrivateRoute path={dashboardPath} component={Entry} />
 
 // 
 //       <!--<AuthButton />-->
