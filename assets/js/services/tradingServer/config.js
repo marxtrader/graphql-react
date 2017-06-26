@@ -1,4 +1,4 @@
-const serverUrl = 'http://testing.marx.tech:8080/';
+const serverUrl = 'http://deploy.marx.tech:8080/';
 const dataMgmtUrl = serverUrl + 'etsdatamanagement/';
 const loginUrl = dataMgmtUrl+'j_security_check';
 
