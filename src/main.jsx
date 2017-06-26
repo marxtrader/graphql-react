@@ -24,6 +24,9 @@ const config = require('../assets/js/services/tradingServer/config.js');
 //    }            
 //);
 
+const loginPath = config.loginPath;
+const dashboardPath = config.dashboardPath;
+
 const Entry= ({...props}) => {
       return ( <ApolloProvider client={client}>
                     <TraderDashboard {...props}/>
@@ -35,12 +38,12 @@ const fakeAuth = {
   signin(history) {
     isAuthenticated = true;  
     //store.dispatch(setAuthState(true));
-    setTimeout(history.push(config.dashboardPath), 100); 
+    setTimeout(history.push(dashboardPath), 100); 
   },
   signout(history1) {
      isAuthenticated = false;   
 //    store.dispatch(setAuthState(false));
-    setTimeout(history1.push(config.loginPath), 100);
+    setTimeout(history1.push(loginPath), 100);
   }
 };    
 
@@ -63,7 +66,7 @@ const PrivateRoute = ({component:Component, ...rest}) => {
                        (<Component {...props}/>)
                     ) : (
                        <Redirect to={ {
-                            pathname: config.loginPath,
+                            pathname: loginPath,
                             state: { from: props.location,
                                      isAuth: fakeAuth.isAuthenticated
                                     }
@@ -85,8 +88,8 @@ const PrivateRoute = ({component:Component, ...rest}) => {
 ReactDom.render( (
         <Router>
             <div>
-                <Route path={config.loginPath} component={Signin} />   
-                <PrivateRoute path={config.dashboardPath} component={Entry} />
+                <Route path={loginPath} component={Signin} />   
+                <PrivateRoute path={dashboardPath} component={Entry} />
             </div>
         </Router>
         ), document.getElementById('app')

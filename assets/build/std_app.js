@@ -95,6 +95,9 @@
 	//    }            
 	//);
 
+	var loginPath = config.loginPath;
+	var dashboardPath = config.dashboardPath;
+
 	var Entry = function Entry(_ref) {
 	    var props = _objectWithoutProperties(_ref, []);
 
@@ -110,12 +113,12 @@
 	    signin: function signin(history) {
 	        isAuthenticated = true;
 	        //store.dispatch(setAuthState(true));
-	        setTimeout(history.push(config.dashboardPath), 100);
+	        setTimeout(history.push(dashboardPath), 100);
 	    },
 	    signout: function signout(history1) {
 	        isAuthenticated = false;
 	        //    store.dispatch(setAuthState(false));
-	        setTimeout(history1.push(config.loginPath), 100);
+	        setTimeout(history1.push(loginPath), 100);
 	    }
 	};
 
@@ -136,7 +139,7 @@
 	            fakeAuth.isAuthenticated = props.location.state.isAuth; // may returned from Signin.jsx 
 	        }
 	        return fakeAuth.isAuthenticated ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouterDom.Redirect, { to: {
-	                pathname: config.loginPath,
+	                pathname: loginPath,
 	                state: { from: props.location,
 	                    isAuth: fakeAuth.isAuthenticated
 	                }
@@ -162,8 +165,8 @@
 	    _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_reactRouterDom.Route, { path: config.loginPath, component: _Signin2.default }),
-	        _react2.default.createElement(PrivateRoute, { path: config.dashboardPath, component: Entry })
+	        _react2.default.createElement(_reactRouterDom.Route, { path: loginPath, component: _Signin2.default }),
+	        _react2.default.createElement(PrivateRoute, { path: dashboardPath, component: Entry })
 	    )
 	), document.getElementById('app'));
 
@@ -24916,9 +24919,9 @@
 
 /***/ },
 /* 196 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	'use strict';
 
 	var serverUrl = 'http://testing.marx.tech:8080/';
 	var dataMgmtUrl = serverUrl + 'etsdatamanagement/';
@@ -24932,30 +24935,30 @@
 	var dashboardPath;
 	var privatePath;
 
-	if (process.env.NODE_ENV !== 'github') {
-	    loginPath = '/reactfront/login';
-	    dashboardPath = '/reactfront';
-	    privatePath = '/reactfront/private';
-	} else {
-	    loginPath = '/login';
-	    dashboardPath = '/';
-	    privatePath = '/private';
-	}
+	//if (process.env.NODE_ENV !== 'github') {
+	//    loginPath = '/reactfront/login';
+	//    dashboardPath = '/reactfront';
+	//    privatePath = '/reactfront/private';  
+	//}else{
+	loginPath = '/login';
+	dashboardPath = '/';
+	privatePath = '/private';
+	//}
+
 
 	module.exports = {
-	    serverUrl: serverUrl,
-	    dataMgmtUrl: dataMgmtUrl,
-	    loginUrl: loginUrl,
-	    dataMgmtRestUrl: dataMgmtRestUrl,
-	    marketDataRestUrl: marketDataRestUrl,
-	    orderMgmtRestUrl: orderMgmtRestUrl,
-	    username: 'test',
-	    password: 'test',
-	    loginPath: loginPath,
-	    dashboardPath: dashboardPath,
-	    privatePath: privatePath
+	  serverUrl: serverUrl,
+	  dataMgmtUrl: dataMgmtUrl,
+	  loginUrl: loginUrl,
+	  dataMgmtRestUrl: dataMgmtRestUrl,
+	  marketDataRestUrl: marketDataRestUrl,
+	  orderMgmtRestUrl: orderMgmtRestUrl,
+	  username: 'test',
+	  password: 'test',
+	  loginPath: loginPath,
+	  dashboardPath: dashboardPath,
+	  privatePath: privatePath
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 197 */
