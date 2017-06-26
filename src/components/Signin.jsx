@@ -20,13 +20,11 @@ class Signin extends React.Component{
             succ = false;
         else{
             succ = false;
-            succ = true;  // test
-            
-//            if ( !ApiSvc.isAlreadyLogged() ){
-//                succ = ApiSvc.login(this.state.username, this.state.password);
+            if ( !ApiSvc.isAlreadyLogged() ){
+                succ = ApiSvc.login(this.state.username, this.state.password);
                 if (succ)
                     this.setState({ redirectToReferrer: true });
-          //  }
+            }
         }
     //    var succ = false;
 //                .then( ( res ) => {

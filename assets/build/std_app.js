@@ -162,7 +162,8 @@
 	    _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_reactRouterDom.Route, { path: config.dashboardPath, component: _Signin2.default })
+	        _react2.default.createElement(_reactRouterDom.Route, { path: config.loginPath, component: _Signin2.default }),
+	        _react2.default.createElement(PrivateRoute, { path: config.dashboardPath, component: Entry })
 	    )
 	), document.getElementById('app'));
 
@@ -27102,11 +27103,10 @@
 
 	var QueryBatcher = (function () {
 	    function QueryBatcher(_a) {
-	        var batchInterval = _a.batchInterval, _b = _a.batchMax, batchMax = _b === void 0 ? 0 : _b, batchFetchFunction = _a.batchFetchFunction;
+	        var batchInterval = _a.batchInterval, batchFetchFunction = _a.batchFetchFunction;
 	        this.queuedRequests = [];
 	        this.queuedRequests = [];
 	        this.batchInterval = batchInterval;
-	        this.batchMax = batchMax;
 	        this.batchFetchFunction = batchFetchFunction;
 	    }
 	    QueryBatcher.prototype.enqueueRequest = function (request) {
@@ -27120,9 +27120,6 @@
 	        });
 	        if (this.queuedRequests.length === 1) {
 	            this.scheduleQueueConsumption();
-	        }
-	        if (this.queuedRequests.length === this.batchMax) {
-	            this.consumeQueue();
 	        }
 	        return fetchRequest.promise;
 	    };
@@ -27152,9 +27149,7 @@
 	    QueryBatcher.prototype.scheduleQueueConsumption = function () {
 	        var _this = this;
 	        setTimeout(function () {
-	            if (_this.queuedRequests.length) {
-	                _this.consumeQueue();
-	            }
+	            _this.consumeQueue();
 	        }, this.batchInterval);
 	    };
 	    return QueryBatcher;
@@ -27196,18 +27191,13 @@
 	};
 	var HTTPBatchedNetworkInterface = (function (_super) {
 	    __extends$1(HTTPBatchedNetworkInterface, _super);
-	    function HTTPBatchedNetworkInterface(_a) {
-	        var uri = _a.uri, _b = _a.batchInterval, batchInterval = _b === void 0 ? 10 : _b, _c = _a.batchMax, batchMax = _c === void 0 ? 0 : _c, fetchOpts = _a.fetchOpts;
+	    function HTTPBatchedNetworkInterface(uri, batchInterval, fetchOpts) {
 	        var _this = _super.call(this, uri, fetchOpts) || this;
 	        if (typeof batchInterval !== 'number') {
 	            throw new Error("batchInterval must be a number, got " + batchInterval);
 	        }
-	        if (typeof batchMax !== 'number') {
-	            throw new Error("batchMax must be a number, got " + batchMax);
-	        }
 	        _this.batcher = new QueryBatcher({
 	            batchInterval: batchInterval,
-	            batchMax: batchMax,
 	            batchFetchFunction: _this.batchQuery.bind(_this),
 	        });
 	        return _this;
@@ -27339,12 +27329,7 @@
 	    if (!options) {
 	        throw new Error('You must pass an options argument to createNetworkInterface.');
 	    }
-	    return new HTTPBatchedNetworkInterface({
-	        uri: options.uri,
-	        batchInterval: options.batchInterval,
-	        batchMax: options.batchMax,
-	        fetchOpts: options.opts || {},
-	    });
+	    return new HTTPBatchedNetworkInterface(options.uri, options.batchInterval, options.opts || {});
 	}
 
 	function isQueryResultAction(action) {
@@ -27806,7 +27791,7 @@
 	                else {
 	                    if (context.fragmentMatcherFunction) {
 	                        if (!isProduction()) {
-	                            console.warn("Missing field " + resultFieldKey + " in " + JSON.stringify(result, null, 2).substring(0, 100));
+	                            console.warn("Missing field " + resultFieldKey);
 	                        }
 	                    }
 	                }
@@ -30241,7 +30226,7 @@
 	    return QueryManager;
 	}());
 
-	var version = "1.5.0";
+	var version = 'local';
 
 	var __assign$13 = (undefined && undefined.__assign) || Object.assign || function(t) {
 	    for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -33051,12 +33036,10 @@
 
 	/**
 	 * UnionMembers :
-	 *   - `|`? NamedType
+	 *   - NamedType
 	 *   - UnionMembers | NamedType
 	 */
 	function parseUnionMembers(lexer) {
-	  // Optional leading pipe
-	  skip(lexer, _lexer.TokenKind.PIPE);
 	  var members = [];
 	  do {
 	    members.push(parseNamedType(lexer));
@@ -33154,12 +33137,10 @@
 
 	/**
 	 * DirectiveLocations :
-	 *   - `|`? Name
+	 *   - Name
 	 *   - DirectiveLocations | Name
 	 */
 	function parseDirectiveLocations(lexer) {
-	  // Optional leading pipe
-	  skip(lexer, _lexer.TokenKind.PIPE);
 	  var locations = [];
 	  do {
 	    locations.push(parseName(lexer));
@@ -36923,12 +36904,10 @@
 	            var succ;
 	            if (this.state.username === '' || this.state.password === '') succ = false;else {
 	                succ = false;
-	                succ = true; // test
-
-	                //            if ( !ApiSvc.isAlreadyLogged() ){
-	                //                succ = ApiSvc.login(this.state.username, this.state.password);
-	                if (succ) this.setState({ redirectToReferrer: true });
-	                //  }
+	                if (!ApiSvc.isAlreadyLogged()) {
+	                    succ = ApiSvc.login(this.state.username, this.state.password);
+	                    if (succ) this.setState({ redirectToReferrer: true });
+	                }
 	            }
 	            //    var succ = false;
 	            //                .then( ( res ) => {

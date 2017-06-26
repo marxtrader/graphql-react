@@ -85,8 +85,8 @@ const PrivateRoute = ({component:Component, ...rest}) => {
 ReactDom.render( (
         <Router >
             <div>
-                <Route path={config.dashboardPath} component={Signin} />   
-               
+                <Route path={config.loginPath} component={Signin} />   
+                <PrivateRoute path={config.dashboardPath} component={Entry} />
             </div>
         </Router>
         ), document.getElementById('app')
