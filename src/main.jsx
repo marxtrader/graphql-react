@@ -83,7 +83,7 @@ const PrivateRoute = ({component:Component, ...rest}) => {
 //};    
 
 ReactDom.render( (
-        <Router>
+        <Router basename="/">
             <div>
                 <Route path={config.loginPath} component={Signin} />   
                 <PrivateRoute path={config.dashboardPath} component={Entry} />
