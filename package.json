@@ -9,7 +9,7 @@
     "build:w": "webpack --watch",
     "build rmt -> testing": "cross-env NODE_ENV=testing webpack",
     "build rmt & min": "cross-env NODE_ENV=testingmin webpack",
-    "build github": "cross-env NODE_ENV=github webpack",    
+    "build localhost": "cross-env NODE_ENV=localhost webpack",    
     "start": "httpster -p $PORT",
     "install ": "install --save",
     "install-dev": "install --save-dev",

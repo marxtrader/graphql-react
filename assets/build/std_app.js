@@ -24919,9 +24919,9 @@
 
 /***/ },
 /* 196 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
 	var serverUrl = 'http://testing.marx.tech:8080/';
 	var dataMgmtUrl = serverUrl + 'etsdatamanagement/';
@@ -24935,30 +24935,31 @@
 	var dashboardPath;
 	var privatePath;
 
-	//if (process.env.NODE_ENV !== 'github') {
-	//    loginPath = '/reactfront/login';
-	//    dashboardPath = '/reactfront';
-	//    privatePath = '/reactfront/private';  
-	//}else{
-	loginPath = '/login';
-	dashboardPath = '/';
-	privatePath = '/private';
-	//}
-
+	if (process.env.NODE_ENV === 'localhost') {
+	    window.console.log('localhost ran');
+	    loginPath = '/react-graphql/login';
+	    dashboardPath = '/react-graphql/';
+	    privatePath = '/react-graphql/private';
+	} else {
+	    loginPath = '/login';
+	    dashboardPath = '/';
+	    privatePath = '/private';
+	}
 
 	module.exports = {
-	  serverUrl: serverUrl,
-	  dataMgmtUrl: dataMgmtUrl,
-	  loginUrl: loginUrl,
-	  dataMgmtRestUrl: dataMgmtRestUrl,
-	  marketDataRestUrl: marketDataRestUrl,
-	  orderMgmtRestUrl: orderMgmtRestUrl,
-	  username: 'test',
-	  password: 'test',
-	  loginPath: loginPath,
-	  dashboardPath: dashboardPath,
-	  privatePath: privatePath
+	    serverUrl: serverUrl,
+	    dataMgmtUrl: dataMgmtUrl,
+	    loginUrl: loginUrl,
+	    dataMgmtRestUrl: dataMgmtRestUrl,
+	    marketDataRestUrl: marketDataRestUrl,
+	    orderMgmtRestUrl: orderMgmtRestUrl,
+	    username: 'test',
+	    password: 'test',
+	    loginPath: loginPath,
+	    dashboardPath: dashboardPath,
+	    privatePath: privatePath
 	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 197 */
@@ -36907,10 +36908,11 @@
 	            var succ;
 	            if (this.state.username === '' || this.state.password === '') succ = false;else {
 	                succ = false;
-	                if (!ApiSvc.isAlreadyLogged()) {
-	                    succ = ApiSvc.login(this.state.username, this.state.password);
-	                    if (succ) this.setState({ redirectToReferrer: true });
-	                }
+	                succ = true;
+	                //            if ( !ApiSvc.isAlreadyLogged() ){
+	                //                succ = ApiSvc.login(this.state.username, this.state.password);
+	                if (succ) this.setState({ redirectToReferrer: true });
+	                //            }
 	            }
 	            //    var succ = false;
 	            //                .then( ( res ) => {

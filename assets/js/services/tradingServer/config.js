@@ -10,15 +10,15 @@ var loginPath;
 var dashboardPath;
 var privatePath;
 
-//if (process.env.NODE_ENV !== 'github') {
-//    loginPath = '/reactfront/login';
-//    dashboardPath = '/reactfront';
-//    privatePath = '/reactfront/private';  
-//}else{
+if (process.env.NODE_ENV === 'localhost') {
+    loginPath = '/react-graphql/login';
+    dashboardPath = '/react-graphql/';
+    privatePath = '/react-graphql/private';  
+}else{
     loginPath = '/login';
     dashboardPath = '/';
     privatePath = '/private';  
-//}
+}
 
 
 module.exports = {
