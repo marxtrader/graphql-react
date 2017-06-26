@@ -158,7 +158,7 @@
 
 	_reactDom2.default.render(_react2.default.createElement(
 	    _reactRouterDom.BrowserRouter,
-	    null,
+	    { basename: '/graphql-react' },
 	    _react2.default.createElement(
 	        'div',
 	        null,
