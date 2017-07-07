@@ -22410,8 +22410,8 @@
 	  }, {
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
-	      var testLogged = _apiSvc2.default.isAlreadyLogged();
-	      this.setState({ isLoggedIn: testLogged });
+	      // var testLogged = apiSvc.isAlreadyLogged(); 
+	      // this.setState( { isLoggedIn: testLogged} );
 	    }
 	  }, {
 	    key: 'componentWillReceiveProps',
