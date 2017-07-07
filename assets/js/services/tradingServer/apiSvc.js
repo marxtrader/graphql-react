@@ -26,8 +26,10 @@ const isAlreadyLogged = () => {
           //  .withCredentials()
             .then( ( res ) => {
                 if( res.header['content-type'].indexOf('text/html') === -1 ) {
+                    console.log("logged");
                     return true;
                 }else{
+                    console.log("do not logged");
                     return false;
                 }
             })
