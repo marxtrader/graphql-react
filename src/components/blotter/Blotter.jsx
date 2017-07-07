@@ -9,8 +9,7 @@ const Blotter = () => {
                 positionList = res.body;
                 console.log('position list');
                 console.log(positionList);
-            });
-//    {/* <!--<button className="btn" onClick={testClick}>test get data</button>--> */}
+            });            
     };    
     
   return (
@@ -18,7 +17,7 @@ const Blotter = () => {
       <div className="panel-heading">BLOTTER</div>
       <div className="panel-body">
         Panel content
-    
+        <button className="btn" onClick={testClick}>test get data</button>
       </div>
     </div>
   );
