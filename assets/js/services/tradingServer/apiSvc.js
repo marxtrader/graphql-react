@@ -23,7 +23,7 @@ let cookie;
 
 const isAlreadyLogged = () => {
     request.get(config.dataMgmtUrl)
-            .withCredentials()
+          //  .withCredentials()
             .then( ( res ) => {
                 if( res.header['content-type'].indexOf('text/html') === -1 ) {
                     return true;
