@@ -14,10 +14,10 @@ if ((process.env.NODE_ENV === 'testing') || (process.env.NODE_ENV === 'testingmi
     //    - assets/
     //    - index.html - for this index page
     const fromPath = './assets';
-    const testingHost = 'testing.marx.tech';
+    const testingHost = 'deploy.marx.tech';
     const testingPort = '22';
     const testingUser = 'ec2-user';
-    const testingKeyDir = require('fs').readFileSync('./TradingServer.pem');
+    const testingKeyDir = require('fs').readFileSync('../singapore-development.pem');
     const testingRemotePath = '/opt/marx/jboss-eap-6.4-marx/standalone/deployments/reactfront.war/assets';    
     
     testingDeploy = new SshWebpackPlugin({
