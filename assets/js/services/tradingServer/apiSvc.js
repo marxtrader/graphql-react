@@ -35,6 +35,7 @@ const isAlreadyLogged = () => {
             })
             .catch( (err) => {
                 console.log('error login' + err);
+                alert(err);
             });
 };
 
