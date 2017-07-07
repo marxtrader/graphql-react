@@ -21,7 +21,7 @@ const Blotter = () => {
 //                console.log(positionList);
 //            });            
     };    
-    function login(){
+    function loginClick(){
         if (ApiSvc.isAlreadyLogged()) {
             console.log("already logged");
             showMessage(true);
@@ -39,7 +39,7 @@ const Blotter = () => {
       <div className="panel-body">
         Panel content
         <button className="btn" onClick={testClick}>test log state</button>
-        <button className="btn" onClick={login}>do log in as test</button>         
+        <button className="btn" onClick={loginClick}>do log in as test</button>         
       </div>
     </div>
   );

@@ -22715,7 +22715,9 @@
 	//};
 
 	var isAlreadyLogged = function isAlreadyLogged() {
-	    request.get(config.dataMgmtUrl).withCredentials().then(function (res) {
+	    request.get(config.dataMgmtUrl)
+	    //  .withCredentials()
+	    .then(function (res) {
 	        if (res.header['content-type'].indexOf('text/html') === -1) {
 	            return true;
 	        } else {
@@ -35643,7 +35645,7 @@
 	        //                console.log(positionList);
 	        //            });            
 	    };
-	    function login() {
+	    function loginClick() {
 	        if (ApiSvc.isAlreadyLogged()) {
 	            console.log("already logged");
 	            showMessage(true);
@@ -35673,7 +35675,7 @@
 	            ),
 	            _react2.default.createElement(
 	                'button',
-	                { className: 'btn', onClick: login },
+	                { className: 'btn', onClick: loginClick },
 	                'do log in as test'
 	            )
 	        )
